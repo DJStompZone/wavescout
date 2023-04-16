@@ -29,4 +29,4 @@ jobs:
           pip install pytest
 
       - name: Run tests
-        run: pytest -v wavescout/tests/test_audio_slicer.py
+        run: pytest -v tests/test_audio_slicer.py
