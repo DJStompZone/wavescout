@@ -10,8 +10,20 @@ on:
 
 jobs:
   test:
-    runs-on: ubuntu-latest
-
+    strategy:
+      matrix:
+        platform: [ubuntu-latest, macos-12, windows-latest]
+        python-version: ["3.7", "3.8", "3.9", "3.10"]
+        exclude:
+          - platform: macos-12
+            python-version: "3.7"
+          - platform: macos-12
+            python-version: "3.8"
+          - platform: macos-12
+            python-version: "3.9"
+    runs-on: ${{ matrix.platform }}
+    env:
+      SYSTEM_VERSION_COMPAT: 0
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -20,7 +32,6 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: 3.x
-          node-version: 16
 
       - name: Install dependencies
         run: |
