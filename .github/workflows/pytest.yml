@@ -27,12 +27,14 @@ jobs:
           python-version: ${{ matrix.python-version }}
 
       - name: Install dependencies
+        timeout-minutes: 10
         run: |
           python -m pip install --upgrade pip
           python -m pip install -r requirements.txt
           python -m pip install pytest
 
       - name: Install FFmpeg
+        timeout-minutes: 10
         run: |
           if [ "${{ matrix.platform }}" == "ubuntu-20.04" ] || [ "${{ matrix.platform }}" == "ubuntu-latest" ]; then
             sudo apt-get update
@@ -42,4 +44,5 @@ jobs:
           fi
 
       - name: Run tests
+        timeout-minutes: 5
         run: pytest -v tests/test_audio_slicer.py
