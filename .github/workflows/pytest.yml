@@ -39,8 +39,8 @@ jobs:
           pip install pytest
           pip uninstall aubio
           pip install pydub
-          pip install pip install essentia==2.1b6.dev858
-          pip install -r requirements.txt
+          pip install pip install essentia --no-cache-dir
+          pip install click
           pip install --no-cache-dir https://github.com/aubio/aubio/archive/refs/tags/0.4.9.tar.gz
 
       - name: Run tests
