@@ -11,7 +11,7 @@ python = "^3.10"
 click = "^8.1.3"
 aubio = {git = "https://github.com/aubio/aubio.git/"}
 pydub = "^0.25.1"
-essentia = "2.1b6.dev858"
+essentia = "2.1b6.dev871"
 pytest = "^7.3.1"
 build = "^0.10.0"
 twine = "^4.0.2"
