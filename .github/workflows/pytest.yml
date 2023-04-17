@@ -29,7 +29,7 @@ jobs:
           pip install pytest
           pip uninstall aubio
           pip install pydub
-          pip install essentia
+          pip install https://files.pythonhosted.org/packages/84/b8/63aa9413681bf701dd6569a378c63db530a96b99ed5df367255a3a11dc42/essentia-2.1b6.dev90.tar.gz
           pip install -r requirements.txt
           pip install --no-cache-dir https://github.com/aubio/aubio/archive/refs/tags/0.4.9.tar.gz
 
