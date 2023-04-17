@@ -18,7 +18,10 @@ def temp_audio_file():
 def temp_output_file():
   with tempfile.NamedTemporaryFile(delete=False) as temp_file:
     yield temp_file.name
-    os.remove(temp_file.name)
+    try:
+      os.remove(temp_file.name)
+    except Exception as e:
+      print("Ignoring exception in temp_output_file: ", e)
 
 
 @pytest.fixture
