@@ -38,9 +38,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install pytest
           pip uninstall aubio
-          pip install pydub
-          pip install pip install --upgrade --no-cache-dir --use-deprecated=legacy-resolver essentia
-          pip install click
+          pip install -r requirements.txt
           pip install --no-cache-dir https://github.com/aubio/aubio/archive/refs/tags/0.4.9.tar.gz
 
       - name: Run tests
