@@ -14,7 +14,7 @@ jobs:
       matrix:
         platform: [ubuntu-20.04, ubuntu-latest, windows-2019, windows-latest, macos-latest]
         python-version: ["3.9", "3.10", "3.11"]
-        test-command: ["pytest -v tests/test_audio_slicer.py", "pytest -v tests/another_test.py"]
+        test-command: ["pytest -v tests/test_audio_slicer.py"]
     runs-on: ${{ matrix.platform }}
     env:
       SYSTEM_VERSION_COMPAT: 0
