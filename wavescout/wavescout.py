@@ -1,20 +1,15 @@
 import logging
 import os
 import zipfile
-from dataclasses import dataclass, field
-
 import aubio
-import numpy as np
+from dataclasses import dataclass, field
 from pydub import AudioSegment
-import essentia.standard as es
 
 
 @dataclass
 class BeatMap:
     beats: list = field(default_factory=list)
     bpm: int = 0
-    key: str = ''
-    key_confidence: float = 0.0
 
 class WaveScout:
     def __init__(self, input_file):
@@ -27,7 +22,6 @@ class WaveScout:
         self.input_file = input_file
         self.beat_map = BeatMap()
         self._analyze_tempo_and_beats()
-        self._analyze_key()
 
     def _analyze_tempo_and_beats(self):
         """
@@ -54,22 +48,6 @@ class WaveScout:
         self.beat_map.beats = beats
         logging.info(f"BPM: {self.beat_map.bpm}")
         logging.info(f"Beats: {self.beat_map.beats}")
-
-
-    def _analyze_key(self):
-        # Load the audio file using Essentia's MonoLoader
-        loader = es.MonoLoader(filename=self.input_file)
-        audio = loader()
-
-        # Instantiate the KeyExtractor algorithm
-        key_extractor = es.KeyExtractor()
-
-        # Analyze the key and scale
-        key, scale, key_strength = key_extractor(audio)
-
-        # Store the results in the BeatMap
-        self.beat_map.key = f"{key} {scale}"
-        self.beat_map.key_confidence = key_strength
 
 
     def export(self, output_file, export_slices=False, measures_per_slice=16, beats_per_measure=4):
