@@ -28,6 +28,8 @@ jobs:
           pip install pefile
           pip install pytest
           pip uninstall aubio
+          pip install pydub
+          pip install -r requirements.txt
           pip install --no-cache-dir https://github.com/aubio/aubio/archive/refs/tags/0.4.9.tar.gz
 
       - name: Run tests
