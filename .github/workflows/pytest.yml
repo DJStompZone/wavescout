@@ -28,7 +28,7 @@ jobs:
           pip install pefile
           pip install pytest
           pip uninstall aubio
-          pip install --no-cache-dir https://github.com/aubio/aubio.git/
+          pip install --no-cache-dir https://github.com/aubio/aubio/archive/refs/tags/0.4.9.tar.gz
 
       - name: Run tests
         run: pytest -v tests/test_audio_slicer.py
