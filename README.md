@@ -1,7 +1,7 @@
 
 # WaveScout
 
-WaveScout is a lightweight Python library for quickly analyzing the tempo and key of audio files and slicing them into smaller segments based on measures.
+WaveScout is a lightweight Python library for quickly analyzing the tempo and key of audio files, with beatmapping and smart-slicing.
 
 
 |      Info      |                           Package                           |             CI/CD              |          Support            |
