@@ -31,8 +31,8 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install -r requirements.txt
           python -m pip install pytest
-          
-        - name: Install FFmpeg
+
+      - name: Install FFmpeg
         run: |
           if [ "${{ matrix.platform }}" == "ubuntu-20.04" ] || [ "${{ matrix.platform }}" == "ubuntu-latest" ]; then
             sudo apt-get update
@@ -40,5 +40,6 @@ jobs:
           else
             pip install ffmpeg
           fi
+
       - name: Run tests
         run: pytest -v tests/test_audio_slicer.py
