@@ -39,8 +39,10 @@ jobs:
           if [ "${{ matrix.platform }}" == "ubuntu-20.04" ] || [ "${{ matrix.platform }}" == "ubuntu-latest" ]; then
             sudo apt-get update
             sudo apt-get install -y ffmpeg
+          elif [ "${{ matrix.platform }}" == "windows-2019" ] || [ "${{ matrix.platform }}" == "windows-latest" ]; then
+            choco install ffmpeg
           else
-            pip install ffmpeg
+            brew install ffmpeg
           fi
 
       - name: Run tests
