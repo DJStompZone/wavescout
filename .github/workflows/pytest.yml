@@ -12,15 +12,8 @@ jobs:
   test:
     strategy:
       matrix:
-        platform: [ubuntu-latest, macos-12, windows-latest]
-        python-version: ["3.7", "3.8", "3.9", "3.10"]
-        exclude:
-          - platform: macos-12
-            python-version: "3.7"
-          - platform: macos-12
-            python-version: "3.8"
-          - platform: macos-12
-            python-version: "3.9"
+        platform: [ubuntu-latest, windows-latest]
+        python-version: ["3.9", "3.10"]
     runs-on: ${{ matrix.platform }}
     env:
       SYSTEM_VERSION_COMPAT: 0
@@ -38,7 +31,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install pytest
           pip uninstall aubio
-          pip install -r requirements.txt
+          pip install -r requirements.txt --no-cache-dir
           pip install --no-cache-dir https://github.com/aubio/aubio/archive/refs/tags/0.4.9.tar.gz
 
       - name: Run tests
