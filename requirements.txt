@@ -6,4 +6,4 @@ pydub==0.25.1
 pyyaml==6.0
 six==1.16.0
 poetry==1.4.2
-poetry-core==1.5.2
+poetry-core==1.6.0
